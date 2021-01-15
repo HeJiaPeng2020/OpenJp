@@ -1,10 +1,9 @@
 package open.jp;
 
-import open.jp.entity.CommonEntity;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
-import javax.net.ssl.SSLContext;
+import open.jp.entity.CommonEntity;
 
 @SpringBootApplication
 public class OpenJpApplication
