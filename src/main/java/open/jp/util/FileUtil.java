@@ -1,16 +1,12 @@
 package open.jp.util;
 
-import com.sun.media.sound.FFT;
-import com.sun.org.apache.bcel.internal.generic.IF_ACMPEQ;
-
 import java.io.File;
-import java.util.Objects;
 
 public class FileUtil
 {
     public static void main(String[] args)
     {
-        String dir = "";
+        String dir = "test";
         String oldPrefix = "";
         String newPrefix = "";
 
