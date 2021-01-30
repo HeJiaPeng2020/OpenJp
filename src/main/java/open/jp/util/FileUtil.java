@@ -6,9 +6,9 @@ public class FileUtil
 {
     public static void main(String[] args)
     {
-        String dir = "test";
-        String oldPrefix = "";
-        String newPrefix = "";
+        String dir = "G:\\计算机系统";
+        String oldPrefix = "【脚本】";
+        String newPrefix = "【Linux】脚本 ";
 
         FileUtil.renamePrefix(dir, oldPrefix, newPrefix);
     }
