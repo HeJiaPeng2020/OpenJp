@@ -9,6 +9,8 @@ class OpenJpApplicationTests
     @Test
     void test99()
     {
-
+    	String string ;
+    	
+    	Object object ;
     }
 }

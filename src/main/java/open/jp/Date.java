@@ -1,13 +1,14 @@
-package open.jp.util;
+package open.jp;
 
 import java.util.Calendar;
 
-public class DateUtil
+public class Date
 {
-	public static void main(String[] args) 
+	public static void main(String[] args)
 	{
-		DateUtil.currentWeek();
+		open.jp.Date.currentWeek();
 	}
+	
 	
 	public static void currentWeek()
 	{
