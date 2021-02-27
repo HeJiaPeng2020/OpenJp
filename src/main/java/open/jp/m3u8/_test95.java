@@ -9,7 +9,6 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
 
-import org.aspectj.weaver.ast.Not;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
