@@ -1,5 +1,8 @@
 package open.jp;
 
+import java.io.InputStream;
+import java.io.OutputStream;
+
 public class File
 {
 	public static void main(String[] args)
@@ -47,6 +50,19 @@ public class File
 					}
 				}
 			}
+		}
+	}
+	
+	//写入文件
+	public static void write(InputStream inputStream, OutputStream outputStream) throws Exception
+	{
+		byte[] bytes = new byte[1024];
+		
+		int readLength = 0;
+		
+		while((readLength=inputStream.read(bytes)) != -1) /*-1表示已读完*/
+		{
+			outputStream.write(bytes, 0, readLength);
 		}
 	}
 }
