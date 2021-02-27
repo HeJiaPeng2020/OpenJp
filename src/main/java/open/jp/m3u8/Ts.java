@@ -15,5 +15,5 @@ public class Ts
 	
 	private String parentFileName;
 	
-	private String rootFilePath = "F:\\_m3u8_download\\";
+	private String rootFilePath = "D:\\_m3u8_other\\";
 }
