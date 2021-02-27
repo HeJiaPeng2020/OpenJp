@@ -1,5 +1,7 @@
 package open.jp;
 
+import open.jp.m3u8.NotFoundException;
+
 import java.io.InputStream;
 import java.net.URL;
 import java.security.SecureRandom;
@@ -44,10 +46,13 @@ public class HttpsUrlConnection
         //连接并等待响应结果
         httpsURLConnection.connect();
         if (httpsURLConnection.getResponseCode()!=200)/* 只有200才算成功，缓存都不算 */
-		{	
+		{
+            if(httpsURLConnection.getResponseCode()==400)/*400异常的url要单独处理*/
+            {   throw new NotFoundException(url);
+            }
         	System.out.print(httpsURLConnection.getResponseCode());
         	System.out.println(httpsURLConnection.getResponseMessage());
-			throw new Exception("发生异常：响应码不是200");
+			throw new Exception("发生异常：响应码不是200，也不是400");
 		}
         
         return httpsURLConnection.getInputStream();

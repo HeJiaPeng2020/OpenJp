@@ -9,6 +9,7 @@ import java.net.URL;
 import java.net.URLEncoder;
 import java.util.List;
 
+import org.aspectj.weaver.ast.Not;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
@@ -38,7 +39,32 @@ public class _test95
 	
 	public static void main(String[] args) throws Exception
 	{
-		begin(null);
+		while(true)
+		{
+			try
+			{
+				begin(null);
+			}
+			catch(Exception e)
+			{
+				e.printStackTrace();
+				Thread.sleep(60*1000);
+
+				if(e instanceof NotFoundException)//
+				{	//当前m3u8有问题，直接跳过
+					M3U8 m3u8 = Redis.get("m3u8", M3U8.class);
+					try
+					{
+						getNextM3U8(m3u8);
+					}
+					catch(Exception e2)
+					{
+						e2.printStackTrace();
+						Thread.sleep(60*1000);
+					}
+				}
+			}
+		}
 	}
 	
 	//从0开始
