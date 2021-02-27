@@ -6,8 +6,10 @@ import java.security.SecureRandom;
 import java.security.cert.CertificateException;
 import java.security.cert.X509Certificate;
 
+import javax.net.ssl.HostnameVerifier;
 import javax.net.ssl.KeyManager;
 import javax.net.ssl.SSLContext;
+import javax.net.ssl.SSLSession;
 import javax.net.ssl.SSLSocketFactory;
 import javax.net.ssl.TrustManager;
 import javax.net.ssl.X509TrustManager;
@@ -21,6 +23,15 @@ public class HttpsUrlConnection
 		//System.setProperty("https.protocols", "TLSv1.1");
 		sslContext.init(new KeyManager[0], new TrustManager[] {new DefaultTrustManager()}, new SecureRandom());
 		SSLSocketFactory sslSocketFactory = sslContext.getSocketFactory();
+		
+		//直接通过主机认证
+        javax.net.ssl.HttpsURLConnection.setDefaultHostnameVerifier(new HostnameVerifier() 
+        {
+        	@Override
+         	public boolean verify(String urlHostName, SSLSession session) 
+        	{	return true;
+         	}
+        });
 		
 		//初始化连接
 		URL urlURL = new URL(url);
